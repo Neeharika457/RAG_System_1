@@ -108,29 +108,6 @@ The tool enables real estate analysts to:
 * Generate answers using only the retrieved content
 
 
-    Step	  Component  	                 Action
-1. Input	    URLs    	           Scrapes text from web pages.
-2. Storage	  Vector               Database	Stores text chunks as searchable "meaning" vectors.
-3. Query	    User Question	       Searches the database for the most relevant text snippets.
-4. Analysis	  LLM (Llama 3.3)	     Reads snippets and extracts the specific answer (e.g., "6.8% on Dec 20").
-5. Output     Final Response	     Provides the Answer + Source Link + Summaries of what it read.
-
-
-
-Step,Phase,Component,Action
-1,Ingestion,WebBaseLoader & Splitter,Scrapes URLs and breaks text into 800-character chunks with overlap.
-
-2,Indexing,ChromaDB & HuggingFace,Converts text chunks into vector embeddings for semantic storage.
-
-3,Retrieval,Similarity Search,Receives user query and retrieves the top 6 most relevant text snippets.
-
-4,Augmentation,Prompt Template,Combines the user query with the retrieved snippets into a single context-heavy instruction.
-
-5,Generation,Llama 3.3 (Groq),"Analyzes the context to extract factual answers (e.g., specific rates and dates)."
-
-6,Output,Final Response Package,"Returns the Answer, the Primary Source URL, and Summaries of the chunks."
-
-
 **Phase 1: The Knowledge Ingestion (Offline)**
 Before you can ask a question, the system must "learn" the documents.
 
