@@ -119,10 +119,15 @@ The tool enables real estate analysts to:
 
 Step,Phase,Component,Action
 1,Ingestion,WebBaseLoader & Splitter,Scrapes URLs and breaks text into 800-character chunks with overlap.
+
 2,Indexing,ChromaDB & HuggingFace,Converts text chunks into vector embeddings for semantic storage.
+
 3,Retrieval,Similarity Search,Receives user query and retrieves the top 6 most relevant text snippets.
+
 4,Augmentation,Prompt Template,Combines the user query with the retrieved snippets into a single context-heavy instruction.
+
 5,Generation,Llama 3.3 (Groq),"Analyzes the context to extract factual answers (e.g., specific rates and dates)."
+
 6,Output,Final Response Package,"Returns the Answer, the Primary Source URL, and Summaries of the chunks."
 
 
